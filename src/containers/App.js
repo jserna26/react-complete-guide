@@ -3,6 +3,7 @@ import classes from './App.module.css';
 // import Person from '../components/Persons/Person';
 // import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
@@ -60,23 +61,24 @@ class App extends Component {
   }
 
   render() { 
-    let persons = null;
-    let btnClass = '';
+    let persons = null;    
     
     if (this.state.showPersons) {
-      persons = (
-        <div>
+      persons = (       
           <Persons persons={this.state.persons}
                    clicked={this.deletePersonHandler}
                    changed={this.nameChangedHandler}         
-          />          
-        </div>
-      )
-      btnClass = classes.Red;
+          />           
+      )      
     }   
 
     return (   
-        <div className={classes.Cockpit}>         
+        <div className={classes.App}>         
+          <Cockpit 
+            title={this.props.title}
+            clicked={this.togglePersonsHandler}
+            showPersons={this.state.showPersons}
+            persons={this.state.persons} />
           {persons}       
         </div>   
     );    
