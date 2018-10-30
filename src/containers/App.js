@@ -4,6 +4,7 @@ import classes from './App.module.css';
 // import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 
 class App extends Component {
@@ -103,14 +104,14 @@ class App extends Component {
     }   
 
     return (   
-        <div className={classes.App}>
+        <WithClass classes={classes.App}>
         <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>          
           <Cockpit title={this.props.title} 
                    showPersons={this.state.showPersons}
                    persons={this.state.persons}
                    clicked={this.togglePersonsHandler}/>
           {persons}                 
-        </div>   
+        </WithClass>   
     );    
   }
 }
