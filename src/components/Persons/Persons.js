@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import Person from '../Persons/Person';
-
-class Persons extends Component {
-    render(){
-        return (this.props.persons.map((elem, idx) =>        
-            <Person
-                    name={elem.name} 
-                    age={elem.age} 
-                    click={() => this.props.clicked(idx)}
-                    changed={(event) => this.props.changed(event, idx)}
-            />         
-        )
-    )}
-} 
-
-=======
 import React, {PureComponent} from 'react';
 import Person from '../Persons/Person';
 
@@ -66,5 +48,4 @@ class Persons extends PureComponent {
 
 }; 
 
->>>>>>> 142a6386b4c0722abf99fdacc96c3d0b51200b6a
 export default Persons;

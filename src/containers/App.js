@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.module.css';
 // import Person from '../components/Persons/Person';
 // import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary'
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
-<<<<<<< HEAD
-=======
-import WithClass from '../hoc/WithClass';
->>>>>>> 142a6386b4c0722abf99fdacc96c3d0b51200b6a
+// import WithClass from '../hoc/WithClass_old';
+import withClass from '../hoc/withClass';
 
 
-class App extends Component {
+class App extends PureComponent {
 
   constructor(props){
     super(props);
@@ -91,50 +89,32 @@ class App extends Component {
   }
 
   render() { 
-<<<<<<< HEAD
-    let persons = null;    
-=======
     console.log("[App.js] Inside render");
     let persons = null;
     
->>>>>>> 142a6386b4c0722abf99fdacc96c3d0b51200b6a
     
     if (this.state.showPersons) {
       persons = (       
           <Persons persons={this.state.persons}
                    clicked={this.deletePersonHandler}
                    changed={this.nameChangedHandler}         
-<<<<<<< HEAD
-          />           
-=======
-          />          
-        </div>
->>>>>>> 142a6386b4c0722abf99fdacc96c3d0b51200b6a
+          />                  
       )      
     }   
 
     return (   
-<<<<<<< HEAD
-        <div className={classes.App}>         
-          <Cockpit 
-            title={this.props.title}
-            clicked={this.togglePersonsHandler}
-            showPersons={this.state.showPersons}
-            persons={this.state.persons} />
-          {persons}       
-        </div>   
-=======
-        <WithClass classes={classes.App}>
+        // <WithClass classes={classes.App}>
+        <>
         <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>          
           <Cockpit title={this.props.title} 
                    showPersons={this.state.showPersons}
                    persons={this.state.persons}
                    clicked={this.togglePersonsHandler}/>
-          {persons}                 
-        </WithClass>   
->>>>>>> 142a6386b4c0722abf99fdacc96c3d0b51200b6a
+          {persons}         
+        </>        
+        //</WithClass>   
     );    
   }
 }
 
-export default App;
+export default withClass(App, classes.App);
